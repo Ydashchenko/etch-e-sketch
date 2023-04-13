@@ -1,25 +1,29 @@
 html, body {
     min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 }
 
-body {
+#main {
+    background-image: url(img/sai.jpeg);
+    background-size: cover;
     margin: 0;
     display: flex;
     justify-content: center;
     align-items: center;
 }
 #container {
+    margin: 0;
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: center;
     margin-left: auto;
     margin-right: auto;
-    border: solid;
-    border-width: 5px;
     width: 500px;
     height: 500px;
-    border-color: black;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
     background-color: aqua;
 }
 
