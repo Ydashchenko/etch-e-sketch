@@ -7,6 +7,9 @@ function hover() {
 
 function newGrid() {
     size = prompt('What size do you want the SketchBox to be? (Max value - 100)')
+    if (size < 1 || size > 100 || isNaN(size)) {
+        return alert('Available size 1-100')
+    }
     document.getElementById('container').innerHTML = ''
     for (i = 0; i < size; i++){
         const column = document.createElement('div')
