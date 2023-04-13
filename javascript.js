@@ -1,3 +1,8 @@
+const DEFAULT_MODE = 'black'
+const DEFAULT_SIZE = 16
+
+let currentMode = DEFAULT_MODE
+let currentSize = DEFAULT_SIZE
 
 
 function hoverGridBlack() {
@@ -15,16 +20,16 @@ function hoverGridErase() {
 }
 
 function newGrid() {
-    size = prompt('What size do you want the SketchBox to be? (Max value - 100)')
-    if (size < 1 || size > 100 || isNaN(size)) {
+    currentSize = prompt('What size do you want the SketchBox to be? (Max value - 100)')
+    if (currentSize < 1 || currentSize > 100 || isNaN(currentSize)) {
         return alert('Available size 1-100')
     }
     document.getElementById('container').innerHTML = ''
-    for (i = 0; i < size; i++){
+    for (i = 0; i < currentSize; i++){
         const column = document.createElement('div')
         column.classList.add('column')
         container.appendChild(column)
-        for (j = 0; j < size; j++) {
+        for (j = 0; j < currentSize; j++) {
             const row = document.createElement('div')
             row.classList.add('row')
             row.classList.add('cell')
@@ -32,7 +37,7 @@ function newGrid() {
         }
     }
     hoverGridBlack()
-    sizeLabel.textContent = `${size} x ${size}`
+    sizeLabel.textContent = `${currentSize} x ${currentSize}`
 }
 function mouseOverBtn() {
     let buttons = document.querySelectorAll('button')
@@ -56,15 +61,15 @@ function clearGrid() {
 
 const container = document.querySelector('#container')
 
-let size = 16
-const sizeLabel = document.getElementById('sizeLabel')
-sizeLabel.textContent = `${size} x ${size}`
 
-for (i = 0; i < size; i++){
+const sizeLabel = document.getElementById('sizeLabel')
+sizeLabel.textContent = `${currentSize} x ${currentSize}`
+
+for (i = 0; i < currentSize; i++){
     const column = document.createElement('div')
     column.classList.add('column')
     container.appendChild(column)
-    for (j = 0; j < size; j++) {
+    for (j = 0; j < currentSize; j++) {
         const row = document.createElement('div')
         row.classList.add('row')
         row.classList.add('cell')
