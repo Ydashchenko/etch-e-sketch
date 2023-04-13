@@ -40,6 +40,11 @@ function mouseOutBtn() {
     }))
 }
 
+function clearGrid() {
+    let cells = document.querySelectorAll('.cell')
+    cells.forEach(cell => cell.style.backgroundColor = ('white'))
+}
+
 const container = document.querySelector('#container')
 
 let size = 16
@@ -60,6 +65,9 @@ for (i = 0; i < size; i++){
 hoverGrid()
 mouseOverBtn()
 mouseOutBtn()
+
+const clear = document.getElementById('clear')
+clear.addEventListener('click', clearGrid)
 
 const setSize = document.getElementById('set-size')
 setSize.addEventListener('click', newGrid)
