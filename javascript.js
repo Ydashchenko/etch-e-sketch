@@ -23,11 +23,14 @@ function newGrid() {
         }
     }
     hover()
+    sizeLabel.textContent = `${size} x ${size}`
 }
 
 const container = document.querySelector('#container')
 
 let size = 16
+const sizeLabel = document.getElementById('sizeLabel')
+sizeLabel.textContent = `${size} x ${size}`
 
 for (i = 0; i < size; i++){
     const column = document.createElement('div')
