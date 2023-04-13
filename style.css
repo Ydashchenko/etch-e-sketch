@@ -34,3 +34,7 @@ body {
     flex-direction: row;
     flex: 1;
 }
+
+.clicked {
+    background-color: black;
+}
