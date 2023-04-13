@@ -1,14 +1,24 @@
-html, body {
-    min-height: 100vh;
+body {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    overflow: hidden;
+    height: 100vh;
+    margin: 0;
+}
+
+#header {
+    align-self: center;
+}
+
+#footer {
+    align-self: center;
 }
 
 #main {
+    flex: 1;
     background-image: url(img/sai.jpeg);
     background-size: cover;
-    margin: 0;
     display: flex;
     justify-content: center;
     align-items: center;
