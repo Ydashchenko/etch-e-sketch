@@ -1,7 +1,16 @@
-function hoverGrid() {
+
+
+function hoverGridBlack() {
     let cells = document.querySelectorAll('.cell')
     cells.forEach(cell => cell.addEventListener('mouseover', function(e) {
         this.style.backgroundColor = 'black'
+    }))
+}
+
+function hoverGridErase() {
+    let cells = document.querySelectorAll('.cell')
+    cells.forEach(cell => cell.addEventListener('mouseover', function(e) {
+        this.style.backgroundColor = 'white'
     }))
 }
 
@@ -22,7 +31,7 @@ function newGrid() {
             column.appendChild(row)
         }
     }
-    hoverGrid()
+    hoverGridBlack()
     sizeLabel.textContent = `${size} x ${size}`
 }
 function mouseOverBtn() {
@@ -62,9 +71,12 @@ for (i = 0; i < size; i++){
         column.appendChild(row)
     }
 }
-hoverGrid()
+hoverGridBlack()
 mouseOverBtn()
 mouseOutBtn()
+
+const eraser = document.getElementById('eraser')
+eraser.addEventListener('click', hoverGridErase)
 
 const clear = document.getElementById('clear')
 clear.addEventListener('click', clearGrid)
