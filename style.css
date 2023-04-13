@@ -7,7 +7,7 @@ body {
     margin: 0;
     background-image: url(img/sai.jpeg);
     background-size: cover;
-    backdrop-filter: blur(10px);
+    backdrop-filter: blur(8px);
 }
 
 button {
@@ -17,6 +17,13 @@ button {
     border-bottom-right-radius: 25px;
     border-top-left-radius: 25px;
     font-size: 20px;
+}
+
+
+.mouse-over-btn {
+    transform: scale(1.1);
+    box-shadow: 0 8px 16px 0 rgba(255, 0, 0, 0.3), 0 12px 40px 0 rgba(255, 0, 0, 0.3);
+    color: red;
 }
 
 #settings {

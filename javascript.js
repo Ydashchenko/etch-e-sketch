@@ -1,4 +1,4 @@
-function hover() {
+function hoverGrid() {
     let cells = document.querySelectorAll('.cell')
     cells.forEach(cell => cell.addEventListener('mouseover', function(e) {
         this.style.backgroundColor = 'black'
@@ -22,8 +22,22 @@ function newGrid() {
             column.appendChild(row)
         }
     }
-    hover()
+    hoverGrid()
     sizeLabel.textContent = `${size} x ${size}`
+}
+function mouseOverBtn() {
+    let buttons = document.querySelectorAll('button')
+    buttons.forEach(button => button.addEventListener('mouseover', function(e) {
+        this.classList.add('mouse-over-btn')
+    }))
+
+}
+
+function mouseOutBtn() {
+    let buttons = document.querySelectorAll('button')
+    buttons.forEach(button => button.addEventListener('mouseout', function(e) {
+        this.classList.remove('mouse-over-btn')
+    }))
 }
 
 const container = document.querySelector('#container')
@@ -43,7 +57,9 @@ for (i = 0; i < size; i++){
         column.appendChild(row)
     }
 }
-hover()
+hoverGrid()
+mouseOverBtn()
+mouseOutBtn()
 
 const setSize = document.getElementById('set-size')
 setSize.addEventListener('click', newGrid)
