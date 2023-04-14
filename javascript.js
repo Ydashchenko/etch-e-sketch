@@ -1,7 +1,5 @@
-const DEFAULT_MODE = 'black'
 const DEFAULT_SIZE = 16
 
-let currentMode = DEFAULT_MODE
 let currentSize = DEFAULT_SIZE
 
 
@@ -47,7 +45,7 @@ function newGrid() {
         }
     }
     hoverGridBlack()
-    sizeLabel.textContent = `${currentSize} x ${currentSize}`
+    setSize.textContent = `${currentSize} x ${currentSize}`
 }
 function mouseOverBtn() {
     let buttons = document.querySelectorAll('button')
@@ -72,8 +70,8 @@ function clearGrid() {
 const container = document.querySelector('#container')
 
 
-const sizeLabel = document.getElementById('sizeLabel')
-sizeLabel.textContent = `${currentSize} x ${currentSize}`
+const setLabel = document.getElementById('set-size')
+setLabel.textContent = `${currentSize} x ${currentSize}`
 
 for (i = 0; i < currentSize; i++){
     const column = document.createElement('div')
