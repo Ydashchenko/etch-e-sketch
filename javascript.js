@@ -80,6 +80,9 @@ hoverGridBlack()
 mouseOverBtn()
 mouseOutBtn()
 
+const black = document.getElementById('black')
+black.addEventListener('click', hoverGridBlack)
+
 const eraser = document.getElementById('eraser')
 eraser.addEventListener('click', hoverGridErase)
 
