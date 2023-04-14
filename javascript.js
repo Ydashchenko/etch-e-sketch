@@ -12,6 +12,16 @@ function hoverGridBlack() {
     }))
 }
 
+function hoverGridRainbow() {
+    let cells = document.querySelectorAll('.cell')
+    cells.forEach(cell => cell.addEventListener('mouseover', function(e) {
+        const randomR = Math.floor(Math.random() * 256)
+        const randomG = Math.floor(Math.random() * 256)
+        const randomB = Math.floor(Math.random() * 256)
+        this.style.backgroundColor = `rgb(${randomR},${randomG},${randomB})`
+    }))
+}
+
 function hoverGridErase() {
     let cells = document.querySelectorAll('.cell')
     cells.forEach(cell => cell.addEventListener('mouseover', function(e) {
@@ -82,6 +92,9 @@ mouseOutBtn()
 
 const black = document.getElementById('black')
 black.addEventListener('click', hoverGridBlack)
+
+const rainbow = document.getElementById('rainbow')
+rainbow.addEventListener('click', hoverGridRainbow)
 
 const eraser = document.getElementById('eraser')
 eraser.addEventListener('click', hoverGridErase)
