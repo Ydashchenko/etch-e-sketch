@@ -102,4 +102,5 @@ button {
 
 .activated {
     color: blue;
+    transform: scale(1.3);
 }

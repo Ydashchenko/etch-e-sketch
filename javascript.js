@@ -57,6 +57,8 @@ function newGrid() {
     }
     document.getElementById('container').innerHTML = ''
     buildGrid()
+    newMode(currentMode)
+    activateBlack()
     setSize.textContent = `${currentSize} x ${currentSize}`
 }
 function mouseOverBtn() {
