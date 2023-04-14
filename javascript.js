@@ -1,16 +1,38 @@
 const DEFAULT_SIZE = 16
+const DEFAULT_MODE = 'black'
 
 let currentSize = DEFAULT_SIZE
+let currentMode = DEFAULT_MODE
 
 
-function hoverGridBlack() {
+
+function newMode(mode) {
+    currentMode = mode
+    if (currentMode === 'black'){
+        black.classList.add('activated')
+        rainbow.classList.remove('activated')
+        eraser.classList.remove('activated')
+    } else if (currentMode === 'rainbow') {
+        black.classList.remove('activated')
+        rainbow.classList.add('activated')
+        eraser.classList.remove('activated')
+    } else if (currentMode === 'eraser') {
+        black.classList.remove('activated')
+        rainbow.classList.remove('activated')
+        eraser.classList.add('activated')
+    }
+}
+
+function activateBlack() {
+    newMode('black')
     let cells = document.querySelectorAll('.cell')
     cells.forEach(cell => cell.addEventListener('mouseover', function(e) {
         this.style.backgroundColor = 'black'
     }))
 }
 
-function hoverGridRainbow() {
+function activateRainbow() {
+    newMode('rainbow')
     let cells = document.querySelectorAll('.cell')
     cells.forEach(cell => cell.addEventListener('mouseover', function(e) {
         const randomR = Math.floor(Math.random() * 256)
@@ -20,7 +42,8 @@ function hoverGridRainbow() {
     }))
 }
 
-function hoverGridErase() {
+function activateEraser() {
+    newMode('eraser')
     let cells = document.querySelectorAll('.cell')
     cells.forEach(cell => cell.addEventListener('mouseover', function(e) {
         this.style.backgroundColor = 'white'
@@ -33,18 +56,7 @@ function newGrid() {
         return alert('Available size 1-100')
     }
     document.getElementById('container').innerHTML = ''
-    for (i = 0; i < currentSize; i++){
-        const column = document.createElement('div')
-        column.classList.add('column')
-        container.appendChild(column)
-        for (j = 0; j < currentSize; j++) {
-            const row = document.createElement('div')
-            row.classList.add('row')
-            row.classList.add('cell')
-            column.appendChild(row)
-        }
-    }
-    hoverGridBlack()
+    buildGrid()
     setSize.textContent = `${currentSize} x ${currentSize}`
 }
 function mouseOverBtn() {
@@ -67,38 +79,44 @@ function clearGrid() {
     cells.forEach(cell => cell.style.backgroundColor = ('white'))
 }
 
-const container = document.querySelector('#container')
-
-
-const setLabel = document.getElementById('set-size')
-setLabel.textContent = `${currentSize} x ${currentSize}`
-
-for (i = 0; i < currentSize; i++){
-    const column = document.createElement('div')
-    column.classList.add('column')
-    container.appendChild(column)
-    for (j = 0; j < currentSize; j++) {
-        const row = document.createElement('div')
-        row.classList.add('row')
-        row.classList.add('cell')
-        column.appendChild(row)
+function buildGrid() {
+    for (i = 0; i < currentSize; i++){
+        const column = document.createElement('div')
+        column.classList.add('column')
+        container.appendChild(column)
+        for (j = 0; j < currentSize; j++) {
+            const row = document.createElement('div')
+            row.classList.add('row')
+            row.classList.add('cell')
+            column.appendChild(row)
+        }
     }
 }
-hoverGridBlack()
-mouseOverBtn()
-mouseOutBtn()
+
+const container = document.querySelector('#container')
 
 const black = document.getElementById('black')
-black.addEventListener('click', hoverGridBlack)
+black.addEventListener('click', activateBlack)
 
 const rainbow = document.getElementById('rainbow')
-rainbow.addEventListener('click', hoverGridRainbow)
+rainbow.addEventListener('click', activateRainbow)
 
 const eraser = document.getElementById('eraser')
-eraser.addEventListener('click', hoverGridErase)
+eraser.addEventListener('click', activateEraser)
 
 const clear = document.getElementById('clear')
 clear.addEventListener('click', clearGrid)
 
 const setSize = document.getElementById('set-size')
 setSize.addEventListener('click', newGrid)
+setSize.textContent = `${currentSize} x ${currentSize}`
+
+
+window.onload = () => {
+    buildGrid()
+    newMode(currentMode)
+    activateBlack()
+    mouseOverBtn()
+    mouseOutBtn()
+}
+
