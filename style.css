@@ -48,7 +48,7 @@ button{
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     -webkit-text-stroke: 2px black;
     color: white;
-    text-shadow: rgb(124, 80, 80) 0 0 10px;
+    text-shadow: rgb(255, 1, 1) 5px 5px 20px;
     border-bottom: solid 3px black;
     
 }
