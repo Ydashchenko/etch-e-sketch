@@ -59,7 +59,7 @@ function newGrid() {
     buildGrid()
     newMode(currentMode)
     activateBlack()
-    setSize.textContent = `${currentSize} x ${currentSize}`
+    setSize.textContent = `Set Size (${currentSize} x ${currentSize})`
 }
 function mouseOverBtn() {
     let buttons = document.querySelectorAll('button')
@@ -111,7 +111,7 @@ clear.addEventListener('click', clearGrid)
 
 const setSize = document.getElementById('set-size')
 setSize.addEventListener('click', newGrid)
-setSize.textContent = `${currentSize} x ${currentSize}`
+setSize.textContent = `Set Size (${currentSize} x ${currentSize})`
 
 
 window.onload = () => {
